@@ -1,0 +1,23 @@
+# - Try to find the header based ${project_name}.
+# Once done this will define
+#  ${project_name}_FOUND - System has ${project_name}
+#  ${project_name}_INCLUDES - The ${project_name} include directories
+
+@PACKAGE_INIT@
+
+execute_process(
+  COMMAND dirname ${CMAKE_CURRENT_LIST_DIR}
+  OUTPUT_VARIABLE project_path
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+execute_process(
+  COMMAND basename ${project_path}
+  OUTPUT_VARIABLE project_name
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+# Use regular set() and assume that the paths exist >> the default set_and_check prodived by
+# CMakePackageConfigHelpers does not work with a multitude of include paths =(
+set(${project_name}_INCLUDES "@PACKAGE_include_list@")
+
+check_required_components("${${project_name}}")
