@@ -25,7 +25,7 @@ macro(packageHeaderProject X)
 
   # Configure the ProjectConfig.cmake file
   configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/cmakerc/packageHeaderConfig.cmake.in"
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake-crux/packageHeaderConfig.cmake.in"
     "${CMAKE_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
     INSTALL_DESTINATION ${LIBRARY_OUTPUT_PATH}/${PROJECT_NAME}/cmake
     PATH_VARS include_list # sysconfig_install_dir
@@ -50,7 +50,7 @@ macro(packageSourceProject X)
   
   # Configure the ProjectConfig.cmake file 
   configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/cmakerc/packageSourceConfig.cmake.in"
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake-crux/packageSourceConfig.cmake.in"
     "${CMAKE_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
     INSTALL_DESTINATION ${LIBRARY_OUTPUT_PATH}/${PROJECT_NAME}/cmake
     PATH_VARS include_list # sysconfig_install_dir
